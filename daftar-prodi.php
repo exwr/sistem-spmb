@@ -10,8 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/logo/logo.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
@@ -32,6 +31,8 @@
       color: #fff;
     }
   </style>
+
+  
 </head>
 
 <body>
@@ -49,7 +50,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.php">Home</a></li>
-          <li><a class="active " href="daftar-prodi.php">Daftar Prodi</a></li>
+          <li><a class="active" href="daftar-prodi.php">Daftar Prodi</a></li>
           <li><a href="biaya-pendaftaran.php">Biaya Pendaftaran</a></li>
           <li class="dropdown"><a href="#"><span>Informasi Fakultas</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -59,6 +60,7 @@
               <li><a href="#">Fakultas Hukum & Bisnis</a></li>
             </ul>
           </li>
+          <li><a href="register.php">Register</a></li>
           <li><a href="login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -75,9 +77,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>About Us</h2>
+          <h2>Daftar Program Studi</h2>
           <ol>
             <li><a href="index.php">Home</a></li>
+            <li>Daftar Prodi</li>
           </ol>
         </div>
 

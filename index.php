@@ -11,7 +11,6 @@
 
   <!-- Favicons -->
   <link href="assets/img/logo/logo.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
@@ -50,7 +49,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="active " href="index.php">Home</a></li>
+          <li><a class="active" href="index.php">Home</a></li>
           <li><a href="daftar-prodi.php">Daftar Prodi</a></li>
           <li><a href="biaya-pendaftaran.php">Biaya Pendaftaran</a></li>
           <li class="dropdown"><a href="#"><span>Informasi Fakultas</span> <i class="bi bi-chevron-down"></i></a>
@@ -62,7 +61,7 @@
 
             </ul>
           </li>
-          <li><a href="Register.php">Register</a></li>
+          <li><a href="register.php">Register</a></li>
           <li><a href="login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

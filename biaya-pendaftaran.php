@@ -10,8 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/logo/logo.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
@@ -27,6 +26,13 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    h3, h4, h5 {
+      color: #fff;
+    }
+  </style>
+
+  
 </head>
 
 <body>
@@ -43,7 +49,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="" href="index.php">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="daftar-prodi.php">Daftar Prodi</a></li>
           <li><a class="active" href="biaya-pendaftaran.php">Biaya Pendaftaran</a></li>
           <li class="dropdown"><a href="#"><span>Informasi Fakultas</span> <i class="bi bi-chevron-down"></i></a>
@@ -54,6 +60,7 @@
               <li><a href="#">Fakultas Hukum & Bisnis</a></li>
             </ul>
           </li>
+          <li><a href="register.php">Register</a></li>
           <li><a href="login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -69,10 +76,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Our Services</h2>
+          <h2>Biaya Pendaftaran</h2>
           <ol>
             <li><a href="index.php">Home</a></li>
-            <li>Our Services</li>
+            <li>Biaya Pendaftaran</li>
           </ol>
         </div>
 
