@@ -62,8 +62,8 @@
 
             </ul>
           </li>
-          <li><a href="login.php">Login</a></li>
           <li><a href="Register.php">Register</a></li>
+          <li><a href="login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
