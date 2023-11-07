@@ -276,23 +276,6 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
-
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-          </div>
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -309,7 +292,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Website Fakultas</h4>
+            <h4>Website Fakultas</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Komputer</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Kesehatan</a></li>
@@ -321,7 +304,7 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              jln.Slamet Riyadi, no 18 <br>
+              Jl. Slamet Riyadi, No. 18 <br>
               Surakarta, Kode Pos 57112<br>
               Jawa Tengah <br><br>
               <strong>Phone:</strong> +621234567890<br>
@@ -344,7 +327,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Universitas ALETA</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -354,7 +337,7 @@
         Designed by <a href="https://bootstrapmade.com/">Universitas ALETA</a>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
