@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -45,7 +45,7 @@
       <div class="logo">
         <h1 class="text-light"><a href="index.php"><span>SPMB 2023</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href=gi"index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <!-- <a href="index.php"><img src="assets/img/logo/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav id="navbar" class="navbar">
@@ -163,7 +163,7 @@
 
         <div class="row">
           <div class="col-lg-6 video-box">
-            <img src="assets/img/why-us.png" class="img-fluid" alt="">
+            <img src="assets/img/logo/logo.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
