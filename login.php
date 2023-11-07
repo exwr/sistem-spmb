@@ -83,14 +83,14 @@
 
       </div>
     </section><!-- End Contact Section -->
-    
+
 <!-- Login Form Section -->
     <section class="login-form">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6">
             <h3>Login to Your Account</h3>
-            <form action="login_process.php" method="post">
+            <form>
               <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="form-control" required>
