@@ -27,55 +27,44 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
-    h3, h4, h5 {
-      color: #fff;
+    .message-box {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  .message-box p {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .login-form {
+      margin-top: 50px;
     }
 
-    /* Added some styling for the login form */
-    .login-form {
-      padding: 60px 0;
-    }
-
-    .login-form h3 {
-      color: #333;
+  .form-group {
       margin-bottom: 20px;
     }
 
-    .login-form form {
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  .form-group label {
+      font-weight: bold;
     }
 
-    .form-group {
-      margin-bottom: 20px;
+  .input-group {
+      position: relative;
     }
 
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    button {
+    .btn-primary {
       background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      border-color: #007bff;
     }
 
-    button:hover {
+    .btn-primary:hover {
       background-color: #0056b3;
+      border-color: #0056b3;
     }
   </style>
 </head>
@@ -85,7 +74,6 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
-
       <div class="logo">
         <h1 class="text-light"><a href="index.php"><span>SPMB 2023</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -119,15 +107,21 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <h3>Login to Your Account</h3>
+          <div class="message-box">
+            <p>Login to Your Account</p>
+          </div>
             <form>
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" class="form-control" required>
+              <div class="form-group input-group">
+                <input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
+                <div class="input-group-text">
+                  <i class="bi bi-person"></i>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" required>
+              <div class="form-group input-group">
+                <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
+                <div class="input-group-text">
+                  <i class="bi bi-lock"></i>
+                </div>
               </div>
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
