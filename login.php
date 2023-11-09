@@ -30,6 +30,53 @@
     h3, h4, h5 {
       color: #fff;
     }
+
+    /* Added some styling for the login form */
+    .login-form {
+      padding: 60px 0;
+    }
+
+    .login-form h3 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .login-form form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 
@@ -68,24 +115,7 @@
   </header><!-- End Header -->
 
   <main id="main">
-
-    <!-- ======= Contact Section ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Login</h2>
-          <ol>
-            <li><a href="index.php">Home</a></li>
-            <li>Login</li>
-          </ol>
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-<!-- Login Form Section -->
-    <section class="login-form">
+    <section class="login-form animate__animated animate__fadeIn">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6">
@@ -104,8 +134,8 @@
           </div>
         </div>
       </div>
-    </section><!-- End Login Form Section -->
-  </main><!-- End #main -->
+    </section>
+  </main>
 
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
