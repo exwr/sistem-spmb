@@ -29,7 +29,7 @@
   <style>
     h3, h4, h5 {
       color: #fff;
-    }
+    }    
   </style>
 
   
@@ -42,9 +42,10 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span>SPMB 2023</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.php"><img src="assets/img/logo/logo.png" alt="" class="img-fluid"></a> -->
+        <a href="index.php">
+          <img src="assets/img/logo/logo.png" alt="" class="img-fluid">
+          <h1 class="text-light"><span>SPMB 2023</span></h1>
+        </a>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -95,7 +96,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
             <div class="icon-box icon-box-pink">
               <div class="icon"><i class="bx bx-laptop"></i></div>
-              <h4 class="title"><a href="">Fakultas Ilmu komputer</a></h4>
+              <h4 class="title"><a href="">Fakultas Ilmu Komputer</a></h4>
               <p class="description">Bidang studi yang berfokus pada pengembangan, perancangan, pemeliharaan, dan pengelolaan perangkat keras, perangkat lunak, serta infrastruktur teknologi informasi</p>
             </div>
           </div>

@@ -39,10 +39,11 @@
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span>SPMB 2023</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    <div class="logo">
+        <a href="index.php">
+          <img src="assets/img/logo/logo.png" alt="" class="img-fluid">
+          <h1 class="text-light"><span>SPMB 2023</span></h1>
+        </a>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -68,26 +69,6 @@
   </header><!-- End Header -->
 
   <main id="main">
-
-    <!-- ======= Contact Section ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Register</h2>
-          <ol>
-            <li><a href="index.php">Home</a></li>
-            <li>Register</li>
-          </ol>
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-    
-   
-
-
     <!-- ======= Register Section ======= -->
     <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
       <div class="container">
@@ -136,7 +117,7 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
+  
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
     <div class="footer-top">

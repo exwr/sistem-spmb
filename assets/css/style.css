@@ -87,6 +87,21 @@ h6,
   height: 60px;
 }
 
+#header .logo {
+  display: flex;
+  align-items: center;
+}
+
+#header .logo a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+#header .logo img {
+  margin-right: 10px;
+}
+
 #header .logo h1 {
   font-size: 28px;
   margin: 0;
@@ -107,6 +122,7 @@ h6,
   padding: 0;
   margin: 0;
   max-height: 40px;
+  
 }
 
 #main {

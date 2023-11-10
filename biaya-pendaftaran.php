@@ -9,8 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/logo/logo.png" rel="icon">
+ <!-- Favicons -->
+ <link href="assets/img/logo/logo.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
@@ -41,10 +41,11 @@
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span>SPMB 2023</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    <div class="logo">
+        <a href="index.php">
+          <img src="assets/img/logo/logo.png" alt="" class="img-fluid">
+          <h1 class="text-light"><span>SPMB 2023</span></h1>
+        </a>
       </div>
 
       <nav id="navbar" class="navbar">
