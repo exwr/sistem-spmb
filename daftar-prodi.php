@@ -80,7 +80,8 @@
 
       </div>
     </section><!-- End About Us Section -->
-
+    <section class="service-details">
+      <div class="container">
     <h2>Daftar Program Studi</h2>
 
     <ul>
@@ -109,6 +110,8 @@
         <li style="list-style: none";><strong>2. S1 - Hukum</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>3. S1 - Akutansi</strong> - Deskripsi singkat tentang program studi ini.</li>
     </ul>
+    </div>
+    </section>
   </main>
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
