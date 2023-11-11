@@ -54,7 +54,7 @@
                 <img src="assets/img/service-details-1.jpg" alt="...">
               </div>
               <div class="card-body">
-                <h5 class="card-title"><a href="#">Fakults Ilmu Komputer</a></h5>
+                <h5 class="card-title"><a href="#">Fakultas Ilmu Komputer</a></h5>
                 <p class="card-text">S1 Sistem Informasi = Rp 10.000.000</p>
                 <p class="card-text">S1 Teknik Informatika = Rp 13.000.000</p>
                 <p class="card-text">D4 Teknologi Rekayasa Perangkat Lunak = Rp 10.000.000</p>
