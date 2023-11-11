@@ -81,18 +81,22 @@
       </div>
     </section><!-- End About Us Section -->
     <section class="service-details">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
     <h2>Daftar Program Studi</h2>
 
     <ul>
+        <li>
         <p>Fakultas Ilmu Komputer</p>
+        </li>
         <li style="list-style: none";><strong>1. S1 - Sistem Informasi</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>2. S1 - Teknik Informatika</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>3. D4 - Teknologi Rekayasa Perangkat Lunak</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>4. D3 - Teknik Komputer</strong> - Deskripsi singkat tentang program studi ini.</li>
     </ul>
     <ul>
-        <p>Fakultas Ilmu Kesehatan<br/></p>
+        <li>
+        <p>Fakultas Ilmu Kesehatan</p>
+        </li>
         <li style="list-style: none";><strong>1. S1 - Farmasi</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>2. S1 - Keperawatan</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>3. S1 - Administrasi Rumah Sakit</strong> - Deskripsi singkat tentang program studi ini.</li>
@@ -100,12 +104,16 @@
         <li style="list-style: none";><strong>5. D3 - Keperawatan</strong> - Deskripsi singkat tentang program studi ini.</li>
     </ul>
     <ul>
+      <li>
         <p>Fakultas Sains & Teknologi</p>
+      </li>
         <li style="list-style: none";><strong>1. S1 - Teknik Industri</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>2. S1 - Agribisnis</strong> - Deskripsi singkat tentang program studi ini.</li>
     </ul>
     <ul>
+        <li>
         <p>Fakultas Hukum & Bisnis</p>
+        </li>
         <li style="list-style: none";><strong>1. S1 - Manajemen</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>2. S1 - Hukum</strong> - Deskripsi singkat tentang program studi ini.</li>
         <li style="list-style: none";><strong>3. S1 - Akutansi</strong> - Deskripsi singkat tentang program studi ini.</li>
