@@ -31,6 +31,39 @@
       color: #fff;
     }
   </style>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+        <a href="index.php">
+          <img src="assets/img/logo/logo.png" alt="" class="img-fluid">
+          <h1 class="text-light"><span>SPMB 2023</span></h1>
+        </a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="daftar-prodi.php">Daftar Prodi</a></li>
+          <li><a class="active" href="biaya-pendaftaran.php">Biaya Pendaftaran</a></li>
+          <li class="dropdown"><a href="#"><span>Informasi Fakultas</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Fakultas Ilmu Komputer</a></li>
+              <li><a href="#">Fakultas Ilmu Kesehatan</a></li>
+              <li><a href="#">Fakultas Sains & Teknologi</a></li>
+              <li><a href="#">Fakultas Hukum & Bisnis</a></li>
+            </ul>
+          </li>
+          <li><a href="register.php">Register</a></li>
+          <li><a href="login.php">Login</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <!-- End Header -->
 
     <!-- ======= Our Services Section ======= -->
     <section class="breadcrumbs">

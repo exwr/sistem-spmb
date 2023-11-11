@@ -30,6 +30,16 @@
     h3, h4, h5 {
       color: #fff;
     }
+    .contact {
+  text-align: center;
+}
+
+.info-box, form {
+  margin: auto; /* Ini akan menempatkan elemen di tengah */
+}
+
+/* Tambahkan gaya lain sesuai kebutuhan desain Anda */
+
   </style>
 </head>
 
@@ -70,34 +80,34 @@
 
   <main id="main">
     <!-- ======= Register Section ======= -->
-    <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
-      <div class="container">
+    <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out">
+  <div class="container">
+  <div class="row justify-content-center">
 
-        <div class="row">
+<div class="col-lg-6">
+  <div class="info-box mt-3">
+    <h2>Pendaftaran Mahasiswa Baru</h2>
+    <p>Informasi mengenai proses pendaftaran mahasiswa baru dapat ditemukan di sini. Silakan lengkapi formulir di bawah untuk mendaftar ke program studi kami.</p>
+  </div>
+</div>
 
-          <div class="col-lg-6">
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="info-box"></div>
-              
-            
-          </div>
-          <div class="col-lg-6">
+<div class="col-lg-6">
   <form action="forms/Register.php" method="post" role="form" class="php-email-form">
     <div class="row">
-      <div class="col-md-6 form-group">
+      <div class="form-group">
         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
       </div>
-      <div class="col-md-6 form-group mt-3 mt-md-0">
+      <div class="form-group mt-3">
         <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
       </div>
     </div>
-    <div class="form-group mt-3">
-      <input type="text" class="form-control" name="nim" id="nim" placeholder="Your NIM" required>
-    </div>
-    <div class="form-group mt-3">
-      <input type="text" class="form-control" name="prodi" id="prodi" placeholder="Your Program Studi" required>
+    <div class="row">
+      <div class="form-group mt-3">
+        <input type="text" class="form-control" name="nim" id="nim" placeholder="Your NIM" required>
+      </div>
+      <div class="form-group mt-3">
+        <input type="text" class="form-control" name="prodi" id="prodi" placeholder="Your Program Studi" required>
+      </div>
     </div>
     <div class="form-group mt-3">
       <input type="password" class="form-control" name="password" id="password" placeholder="Your Password" required>
@@ -107,13 +117,15 @@
       <div class="error-message"></div>
       <div class="sent-message">Your registration has been submitted. Thank you!</div>
     </div>
-    <div class="text-center"><button type="submit">Register</button></div>
+    <div class="text-center">
+      <button type="submit">Register</button>
+    </div>
   </form>
 </div>
 
+</div>
+</section>
 
-      </div>
-    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
