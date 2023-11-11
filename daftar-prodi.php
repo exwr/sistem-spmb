@@ -26,13 +26,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <style>
-    h3, h4, h5 {
-      color: #fff;
-    }
-  </style>
-
-  
 </head>
 
 <body>
@@ -88,36 +81,35 @@
       </div>
     </section><!-- End About Us Section -->
 
-    <!-- ======= About Section ======= -->
-
-    <title>Daftar Program Studi</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-
     <h2>Daftar Program Studi</h2>
 
     <ul>
-        <li><strong>1. Teknik Informatika</strong> - Deskripsi singkat tentang program studi ini.</li>
-        <li><strong>2. Manajemen Bisnis</strong> - Deskripsi singkat tentang program studi ini.</li>
-        <li><strong>3. Ilmu Komunikasi</strong> - Deskripsi singkat tentang program studi ini.</li>
-        <!-- Tambahkan program studi lainnya sesuai kebutuhan -->
+        <p>Fakultas Ilmu Komputer</p>
+        <li style="list-style: none";><strong>1. S1 - Sistem Informasi</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>2. S1 - Teknik Informatika</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>3. D4 - Teknologi Rekayasa Perangkat Lunak</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>4. D3 - Teknik Komputer</strong> - Deskripsi singkat tentang program studi ini.</li>
     </ul>
-
+    <ul>
+        <p>Fakultas Ilmu Kesehatan<br/></p>
+        <li style="list-style: none";><strong>1. S1 - Farmasi</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>2. S1 - Keperawatan</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>3. S1 - Administrasi Rumah Sakit</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>4. D3 - Kebidanan</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>5. D3 - Keperawatan</strong> - Deskripsi singkat tentang program studi ini.</li>
+    </ul>
+    <ul>
+        <p>Fakultas Sains & Teknologi</p>
+        <li style="list-style: none";><strong>1. S1 - Teknik Industri</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>2. S1 - Agribisnis</strong> - Deskripsi singkat tentang program studi ini.</li>
+    </ul>
+    <ul>
+        <p>Fakultas Hukum & Bisnis</p>
+        <li style="list-style: none";><strong>1. S1 - Manajemen</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>2. S1 - Hukum</strong> - Deskripsi singkat tentang program studi ini.</li>
+        <li style="list-style: none";><strong>3. S1 - Akutansi</strong> - Deskripsi singkat tentang program studi ini.</li>
+    </ul>
+  </main>
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
     <div class="footer-top">
