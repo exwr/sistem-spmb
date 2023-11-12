@@ -1,3 +1,7 @@
+<?php
+require_once('function/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,23 +27,39 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
-    h3, h4, h5 {
-      color: #fff;
-    }
     .contact {
-  text-align: center;
-}
+      text-align: center;
+    }
 
-.info-box, form {
-  margin: auto; /* Ini akan menempatkan elemen di tengah */
-}
+    label {
+      margin-bottom: 10px;
+    } 
 
-/* Tambahkan gaya lain sesuai kebutuhan desain Anda */
+    .info-box, .form {
+      margin: auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
 
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-label {
+      font-weight: bold;
+    }
+
+    .btn {
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -81,52 +101,108 @@
   <main id="main">
     <!-- ======= Register Section ======= -->
     <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out">
-  <div class="container">
-  <div class="row justify-content-center">
-
-<div class="col-lg-6">
-  <div class="info-box mt-3">
-    <h2>Pendaftaran Mahasiswa Baru</h2>
-    <p>Informasi mengenai proses pendaftaran mahasiswa baru dapat ditemukan di sini. Silakan lengkapi formulir di bawah untuk mendaftar ke program studi kami.</p>
+      <div class="container">
+        <!-- Register Form -->
+        <div class="info-box mt-3">
+          <h2>Pendaftaran Mahasiswa Baru</h2>
+          <p>Informasi mengenai proses pendaftaran mahasiswa baru dapat ditemukan di sini. Silakan lengkapi formulir di bawah untuk mendaftar ke program studi kami.</p>
+        </div>
+        <div class="form">
+          <h2 class="text-center mt-3">Form Registrasi</h2>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+              <form action="function/proses_pendaftaran.php" method="post">
+  <!-- NIK -->
+  <div class="form-group">
+    <input type="text" name="nik" id="nik" placeholder="NIK" class="form-control" required>
   </div>
-</div>
 
-<div class="col-lg-6">
-  <form action="forms/Register.php" method="post" role="form" class="php-email-form">
-    <div class="row">
-      <div class="form-group">
-        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-      </div>
-      <div class="form-group mt-3">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group mt-3">
-        <input type="text" class="form-control" name="nim" id="nim" placeholder="Your NIM" required>
-      </div>
-      <div class="form-group mt-3">
-        <input type="text" class="form-control" name="prodi" id="prodi" placeholder="Your Program Studi" required>
-      </div>
-    </div>
-    <div class="form-group mt-3">
-      <input type="password" class="form-control" name="password" id="password" placeholder="Your Password" required>
-    </div>
-    <div class="my-3">
-      <div class="loading">Loading</div>
-      <div class="error-message"></div>
-      <div class="sent-message">Your registration has been submitted. Thank you!</div>
-    </div>
-    <div class="text-center">
-      <button type="submit">Register</button>
-    </div>
-  </form>
-</div>
+  <!-- No KK -->
+  <div class="form-group">
+    <input type="text" name="no_kk" id="no_kk" placeholder="Nomor KK" class="form-control" required>
+  </div>
 
-</div>
-</section>
+  <!-- Nama -->
+  <div class="form-group">
+    <input type="text" name="nama" id="nama" placeholder="Nama Lengkap" class="form-control" required>
+  </div>
 
+  <!-- Jenis Kelamin -->
+  <div class="form-group">
+    <select name="gender" id="gender" class="form-control" required>
+      <option value="">- Pilih Jenis Kelamin -</option>
+      <option value="Laki-laki">Laki-laki</option>
+      <option value="Perempuan">Perempuan</option>
+    </select>
+  </div>
 
+  <!-- Tempat Lahir -->
+  <div class="form-group">
+    <input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" class="form-control" required>
+  </div>
+
+  <!-- Tanggal Lahir -->
+  <div class="form-group">
+    <label for="tanggal_lahir">Tanggal Lahir:</label>
+    <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" required>
+  </div>
+
+  <!-- Nomor HP -->
+  <div class="form-group">
+    <input type="text" name="no_hp" id="no_hp" placeholder="Nomor HP" class="form-control" required>
+  </div>
+
+  <!-- Email -->
+  <div class="form-group">
+    <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
+  </div>
+
+  <!-- Alamat -->
+  <div class="form-group">
+    <textarea name="alamat" id="alamat" placeholder="Alamat" class="form-control" required></textarea>
+  </div>
+
+  <!-- Provinsi -->
+  <div class="form-group">
+    <select name="provinsi" id="select2-provinsi" class="form-control" required></select>
+  </div>
+
+  <!-- Kabupaten/Kota -->
+  <div class="form-group">
+    <select name="kab_kota" id="select2-kabupaten" class="form-control" required></select>
+  </div>
+
+  <!-- Kecamatan -->
+  <div class="form-group">
+    <select name="kecamatan" id="select2-kecamatan" class="form-control" required></select>
+  </div>
+
+  <!-- Kelurahan -->
+  <div class="form-group">
+    <select name="kelurahan" id="select2-kelurahan" class="form-control" required></select>
+  </div>
+
+  <!-- RT -->
+  <div class="form-group">
+    <input type="text" name="no_rt" id="no_rt" placeholder="RT" class="form-control" required>
+  </div>
+
+  <!-- RW -->
+  <div class="form-group">
+    <input type="text" name="no_rw" id="no_rw" placeholder="RW" class="form-control" required>
+  </div>
+
+  <!-- Tombol Submit -->
+  <button type="submit" class="btn btn-primary">Kirim</button>
+</form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main><!-- End #main -->
 
   
@@ -194,6 +270,8 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -202,8 +280,7 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
+  <script src="assets/js/data.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>
