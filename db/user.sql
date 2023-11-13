@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Nov 2023 pada 14.36
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Generation Time: Nov 13, 2023 at 07:58 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,13 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `nik` int(16) NOT NULL,
-  `no_kk` int(16) NOT NULL,
+  `nik` varchar(16) NOT NULL,
+  `no_kk` varchar(16) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `tempat_lahir` varchar(255) NOT NULL,
@@ -42,8 +42,8 @@ CREATE TABLE `user` (
   `kab_kota` varchar(255) NOT NULL,
   `kecamatan` varchar(255) NOT NULL,
   `kelurahan` varchar(255) NOT NULL,
-  `no_rt` int(3) NOT NULL,
-  `no_rw` int(3) NOT NULL
+  `no_rt` varchar(2) NOT NULL,
+  `no_rw` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -51,17 +51,17 @@ CREATE TABLE `user` (
 --
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
