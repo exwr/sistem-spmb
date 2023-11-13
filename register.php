@@ -115,12 +115,12 @@ require_once('function/connection.php');
               <form action="function/proses_pendaftaran.php" method="post">
   <!-- NIK -->
   <div class="form-group">
-    <input type="text" name="nik" id="nik" placeholder="NIK" class="form-control" required>
+    <input type="text" name="nik" id="nik" placeholder="NIK (16 Digit)" class="form-control" required>
   </div>
 
   <!-- No KK -->
   <div class="form-group">
-    <input type="text" name="no_kk" id="no_kk" placeholder="Nomor KK" class="form-control" required>
+    <input type="text" name="no_kk" id="no_kk" placeholder="Nomor KK (16 Digit)" class="form-control" required>
   </div>
 
   <!-- Nama -->
@@ -150,7 +150,7 @@ require_once('function/connection.php');
 
   <!-- Nomor HP -->
   <div class="form-group">
-    <input type="text" name="no_hp" id="no_hp" placeholder="Nomor HP" class="form-control" required>
+    <input type="text" name="no_hp" id="no_hp" placeholder="Nomor HP (11/12 Digit)" class="form-control" required>
   </div>
 
   <!-- Email -->
@@ -185,16 +185,16 @@ require_once('function/connection.php');
 
   <!-- RT -->
   <div class="form-group">
-    <input type="text" name="no_rt" id="no_rt" placeholder="RT" class="form-control" required>
+    <input type="text" name="no_rt" id="no_rt" placeholder="RT (2 Digit)" class="form-control" required>
   </div>
 
   <!-- RW -->
   <div class="form-group">
-    <input type="text" name="no_rw" id="no_rw" placeholder="RW" class="form-control" required>
+    <input type="text" name="no_rw" id="no_rw" placeholder="RW (2 Digit)" class="form-control" required>
   </div>
 
   <!-- Tombol Submit -->
-  <button type="submit" class="btn btn-primary">Kirim</button>
+  <button type="submit" class="btn btn-primary">Daftar</button>
 </form>
 
               </div>
