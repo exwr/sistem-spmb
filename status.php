@@ -1,7 +1,6 @@
 <?php
-require('function/dashboard/dashboard_main.php');
+require('function/dashboard/status_main.php');
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +9,7 @@ require('function/dashboard/dashboard_main.php');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard | Universitas ALETA</title>
+    <title>Status Pendaftaran | Universitas ALETA</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -177,7 +176,7 @@ require('function/dashboard/dashboard_main.php');
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title">Status Pendaftaran</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -231,5 +230,6 @@ require('function/dashboard/dashboard_main.php');
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+</body>
 
 </html>

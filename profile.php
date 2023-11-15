@@ -1,46 +1,12 @@
 <?php
-session_start();
-include_once('function/connection.php');
-
-// Periksa apakah pengguna sudah login
-if (!isset($_SESSION['id'])) {
-    // Jika tidak, arahkan kembali ke halaman login
-    header("Location: login.php");
-    exit;
-}
-
-// Ambil informasi pengguna dari database
-$id = $_SESSION['id'];
-
-// Query untuk mengambil avatar dari t_user
-$queryUser = "SELECT avatar, email FROM t_user WHERE id = :id";
-$stmtUser = $pdo->prepare($queryUser);
-$stmtUser->bindParam(':id', $id, PDO::PARAM_INT);
-$stmtUser->execute();
-$userData = $stmtUser->fetch();
-
-// Query untuk mengambil nama dari t_mahasiswa
-$queryMahasiswa = "SELECT nama FROM t_mahasiswa WHERE id = :id";
-$stmtMahasiswa = $pdo->prepare($queryMahasiswa);
-$stmtMahasiswa->bindParam(':id', $id, PDO::PARAM_INT);
-$stmtMahasiswa->execute();
-$mahasiswaData = $stmtMahasiswa->fetch();
-
-if ($userData && $mahasiswaData) {
-    $avatar = $userData['avatar'];
-    $nama_lengkap = $mahasiswaData['nama'];
-    $email = $userData['email'];
-} else {
-    // Handle jika pengguna tidak ditemukan di salah satu tabel
-    $avatar = "default_avatar.jpg"; // Gantilah dengan nilai default gambar
-}
+require('function/dashboard/profile_main.php');
 ?>
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="en">
 
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Profile | Universitas ALETA</title>
@@ -64,7 +30,22 @@ if ($userData && $mahasiswaData) {
     <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        button {
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -80,8 +61,7 @@ if ($userData && $mahasiswaData) {
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -91,7 +71,7 @@ if ($userData && $mahasiswaData) {
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
+                    <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -99,10 +79,10 @@ if ($userData && $mahasiswaData) {
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <!-- <img src="plugins/images/logo-text.png" alt="homepage" /> -->
-                        </span>
+                        <!-- <span class="logo-text"> -->
+                        <!-- dark Logo text -->
+                        <!-- <img src="plugins/images/logo-text.png" alt="homepage" /> -->
+                        <!-- </span> -->
                     </a>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
@@ -110,8 +90,7 @@ if ($userData && $mahasiswaData) {
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -119,8 +98,7 @@ if ($userData && $mahasiswaData) {
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
-                            <a class="nav-toggler nav-link waves-effect waves-light text-white"
-                                href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                            <a class="nav-toggler nav-link waves-effect waves-light text-white" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                         </li>
                     </ul>
                     <!-- ============================================================== -->
@@ -129,25 +107,14 @@ if ($userData && $mahasiswaData) {
                     <ul class="navbar-nav ms-auto d-flex align-items-center">
 
                         <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
-                                <input type="text" placeholder="Search..." class="form-control mt-0">
-                                <a href="" class="active">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
+                        <!-- User profile -->
                         <!-- ============================================================== -->
                         <li>
                             <a class="profile-pic" href="#">
-                                <img src="assets/img/avatar/<?php echo $avatar; ?>" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
+                                <img src="uploads/avatar/<?php echo $avatar; ?>" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
                         </li>
                         <!-- ============================================================== -->
-                        <!-- User profile and search -->
+                        <!-- User profile-->
                         <!-- ============================================================== -->
                     </ul>
                 </div>
@@ -167,24 +134,30 @@ if ($userData && $mahasiswaData) {
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php" aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php"
+                                aria-expanded="false">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                <span class="hide-menu">Status Pendaftaran</span>
+                            </a>
+                        </li>
                         <li class="text-center p-20 upgrade-btn">
-                           <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
-                                Logout</a></button>
+                            <button class="btn d-grid btn-danger text-white" target="_blank"><a href="logout.php">
+                                    Logout</a></button>
                         </li>
                     </ul>
+
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -230,25 +203,13 @@ if ($userData && $mahasiswaData) {
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-12">
                         <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="plugins/images/large/img1.jpg">
+                            <div class="user-bg"> <img width="100%" alt="user" src="uploads/avatar/<?php echo $avatar; ?>">
                                 <div class="overlay-box">
                                     <div class="user-content">
-                                        <a href="javascript:void(0)"><img src="assets/img/avatar/<?php echo $avatar; ?>"
-                                                class="thumb-lg img-circle" alt="img"></a>
+                                        <a href="javascript:void(0)"><img src="uploads/avatar/<?php echo $avatar; ?>" class="thumb-lg img-circle" alt="img"></a>
                                         <h4 class="text-white mt-2"><?php echo $nama_lengkap; ?></h4>
                                         <h5 class="text-white mt-2"><?php echo $email; ?></h5>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="user-btm-box mt-5 d-md-flex">
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <h1>258</h1>
-                                </div>
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <h1>125</h1>
-                                </div>
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <h1>556</h1>
                                 </div>
                             </div>
                         </div>
@@ -258,56 +219,106 @@ if ($userData && $mahasiswaData) {
                     <div class="col-lg-8 col-xlg-9 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" action="function/update_profile.php" method="post" enctype="multipart/form-data">
                                     <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Full Name</label>
+                                        <label class="col-md-12 p-0">NIK</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" placeholder="Johnathan Doe"
-                                                class="form-control p-0 border-0"> </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="example-email" class="col-md-12 p-0">Email</label>
-                                        <div class="col-md-12 border-bottom p-0">
-                                            <input type="email" placeholder="johnathan@admin.com"
-                                                class="form-control p-0 border-0" name="example-email"
-                                                id="example-email">
+                                            <input type="text" placeholder="NIK (16 Digit)" value="<?php echo $nik; ?>" class="form-control p-0 border-0" name="nik">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Password</label>
+                                        <label class="col-md-12 p-0">Nomor KK</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="password" value="password" class="form-control p-0 border-0">
+                                            <input type="text" placeholder="Nomor KK (16 Digit)" value="<?php echo $no_kk; ?>" class="form-control p-0 border-0" name="no_kk">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Phone No</label>
+                                        <label class="col-md-12 p-0">Nama Lengkap</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" placeholder="123 456 7890"
-                                                class="form-control p-0 border-0">
+                                            <input type="text" placeholder="Nama Lengkap" value="<?php echo $nama_lengkap; ?>" class="form-control p-0 border-0" name="nama">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Message</label>
+                                        <label class="col-md-12 p-0">Jenis Kelamin</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <textarea rows="5" class="form-control p-0 border-0"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label class="col-sm-12">Select Country</label>
-
-                                        <div class="col-sm-12 border-bottom">
-                                            <select class="form-select shadow-none p-0 border-0 form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
+                                            <select name="gender" class="form-control">
+                                                <option value="">- Pilih Jenis Kelamin -</option>
+                                                <option value="Laki-laki" <?php if ($gender == 'Laki-laki') echo 'selected'; ?>>Laki-laki</option>
+                                                <option value="Perempuan" <?php if ($gender == 'Perempuan') echo 'selected'; ?>>Perempuan</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
+                                        <label for="col-md-12 p-0" class="col-md-12 p-0">Tempat Lahir</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text" placeholder="Tempat Lahir" value="<?php echo $tempat_lahir; ?>" class="form-control p-0 border-0" name="tempat_lahir">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="col-md-12 p-0" class="col-md-12 p-0">Tanggal Lahir</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="date" value="<?php echo $tanggal_lahir; ?>" class="form-control p-0 border-0" name="tanggal_lahir">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="col-md-12 p-0" class="col-md-12 p-0">Email</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="email" placeholder="Email" value="<?php echo $email; ?>" class="form-control p-0 border-0" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Nomor HP</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text" placeholder="Nomor HP" value="<?php echo $no_hp; ?>" class="form-control p-0 border-0" name="no_hp">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Pilihan Program Studi 1</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <select name="prodi_1" id="prodi_1" class="form-control" required>
+                                                <option value="">- Pilih Program Studi -</option>
+                                                <?php
+                                                $queryProdi = "SELECT * FROM t_prodi";
+                                                $stmtProdi = $pdo->query($queryProdi);
+
+                                                $selectedProdiID = isset($prodi_1) ? $prodi_1 : '';
+
+                                                while ($rowProdi = $stmtProdi->fetch(PDO::FETCH_ASSOC)) {
+                                                    $selected = ($rowProdi['id'] == $selectedProdiID) ? 'selected' : '';
+                                                    echo '<option value="' . $rowProdi['id'] . '" ' . $selected . '>' . $rowProdi['nama_prodi'] . ' - ' . $rowProdi['jenjang'] . '</option>';
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Pilihan Program Studi 2</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <select name="prodi_2" id="prodi_2" class="form-control" required>
+                                                <option value="">- Pilih Program Studi -</option>
+                                                <?php
+                                                $queryProdi = "SELECT * FROM t_prodi";
+                                                $stmtProdi = $pdo->query($queryProdi);
+
+                                                $selectedProdiID = isset($prodi_2) ? $prodi_2 : '';
+
+                                                while ($rowProdi = $stmtProdi->fetch(PDO::FETCH_ASSOC)) {
+                                                    $selected = ($rowProdi['id'] == $selectedProdiID) ? 'selected' : '';
+                                                    echo '<option value="' . $rowProdi['id'] . '" ' . $selected . '>' . $rowProdi['nama_prodi'] . ' - ' . $rowProdi['jenjang'] . '</option>';
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Avatar</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="file" name="avatar" class="form-control p-0 border-0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
+                                            <button type="submit" class="btn btn-success">Update Profile</button>
                                         </div>
                                     </div>
                                 </form>
@@ -334,8 +345,8 @@ if ($userData && $mahasiswaData) {
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
-                    href="https://www.wrappixel.com/">wrappixel.com</a>
+            <footer class="footer text-center"> &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
+                <p>Dikelola Oleh Tim IT <strong>Universitas ALETA</strong></p>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
