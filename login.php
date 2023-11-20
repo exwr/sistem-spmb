@@ -8,15 +8,15 @@ if (isset($_SESSION['id'])) {
 }
 
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 1) {
-      $error_message = "Username atau password salah.";
-  } elseif ($_GET['error'] == 'username_not_found') {
-      $error_message = "Username tidak ditemukan.";
-  }
+    if ($_GET['error'] == 1) {
+        $error_message = "Username atau password salah.";
+    } elseif ($_GET['error'] == 'username_not_found') {
+        $error_message = "Username tidak ditemukan.";
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  require_once('function/proses_login.php');
+    require_once('function/proses_login.php');
 }
 ?>
 
@@ -65,6 +65,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-top: 50px;
         }
 
+        .login-form-container {
+            margin-top: 50px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -73,8 +84,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
         }
 
+        .form-control {
+            border-radius: 0;
+        }
+
         .input-group {
             position: relative;
+        }
+
+        .input-group-prepend {
+            margin-right: -1px;
+        }
+
+        .input-group-prepend .input-group-text {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+        }
+
+        .input-group-prepend .input-group-text i {
+            color: #007bff;
+        }
+        
+        .btn-primary.text-center {
+            display: block;
+            margin: auto;
         }
 
         .btn-primary {
@@ -130,21 +163,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="message-box">
                             <p>Login to Your Account</p>
                         </div>
-                        <form method="POST">
-                            <div class="form-group input-group">
-                                <input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
-                                <div class="input-group-text">
-                                    <i class="bi bi-person"></i>
+                        <div class="login-form-container">
+                            <form method="POST">
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
                                 </div>
-                            </div>
-                            <div class="form-group input-group">
-                                <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
-                                <div class="input-group-text">
-                                    <i class="bi bi-lock"></i>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-lock"></i>
+                                        </div>
+                                    </div>
+                                    <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
                                 </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
+                                <button type="submit" class="btn btn-primary text-center col-md-6">Login</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,7 +246,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Dikelola Oleh Tim IT <a href="index.php">Universitas ALETA</a>
             </div>
         </div>
-    </footer><!-- End Footer -->
+    </footer>
+    <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
