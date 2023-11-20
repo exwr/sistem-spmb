@@ -130,12 +130,12 @@ if (isset($_SESSION['id'])) {
 
                   <!-- NIK -->
                   <div class="form-group">
-                    <input type="text" name="nik" id="nik" placeholder="NIK (16 Digit)" class="form-control" required>
+                    <input type="text" name="nik" id="nik" placeholder="NIK (16 Digit)" maxlength="16" class="form-control" required>
                   </div>
 
                   <!-- No KK -->
                   <div class="form-group">
-                    <input type="text" name="no_kk" id="no_kk" placeholder="Nomor KK (16 Digit)" class="form-control" required>
+                    <input type="text" name="no_kk" id="no_kk" placeholder="Nomor KK (16 Digit)" maxlength="16" class="form-control" required>
                   </div>
 
                   <!-- Nama -->
@@ -165,7 +165,7 @@ if (isset($_SESSION['id'])) {
 
                   <!-- Nomor HP -->
                   <div class="form-group">
-                    <input type="text" name="no_hp" id="no_hp" placeholder="Nomor HP (11/12 Digit)" class="form-control" required>
+                    <input type="text" name="no_hp" id="no_hp" placeholder="Nomor HP (11/12 Digit)" maxlength="12" class="form-control" required>
                   </div>
 
                   <!-- Email -->
