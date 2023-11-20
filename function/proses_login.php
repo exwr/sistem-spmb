@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (password_verify($password, $user['password'])) {
         session_start();
         $_SESSION['id'] = $user['id'];
+        $_SESSION['role'] = $user['role'];
         header("Location: dashboard.php"); // Ganti dengan halaman yang sesuai setelah login berhasil
     } else {
         // Password salah

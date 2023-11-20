@@ -11,6 +11,7 @@ if (!isset($_SESSION['id'])) {
 
 // Ambil informasi pengguna dari database
 $id = $_SESSION['id'];
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 
 // Query untuk mengambil avatar dari t_user
 $queryUser = "SELECT avatar FROM t_user WHERE id = :id";
