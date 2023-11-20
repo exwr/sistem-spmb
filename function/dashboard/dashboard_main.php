@@ -31,6 +31,6 @@ if ($userData && $mahasiswaData) {
     $nama_lengkap = $mahasiswaData['nama']; // Nama lengkap pengguna
 } else {
     // Handle jika pengguna tidak ditemukan di salah satu tabel
-    $avatar = "default_avatar.jpg"; // Gantilah dengan nilai default gambar
+    $avatar = "default-avatar.png"; // Gantilah dengan nilai default gambar
 }
 ?>

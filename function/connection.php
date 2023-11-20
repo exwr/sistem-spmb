@@ -1,6 +1,6 @@
 <?php
 $host = "localhost"; // Ganti dengan nama host database Anda
-$dbname = "db_spmb_baru"; // Ganti dengan nama database Anda
+$dbname = "db_spmb"; // Ganti dengan nama database Anda
 $username = "root"; // Ganti dengan nama pengguna database Anda
 $password = ""; // Ganti dengan kata sandi database Anda
 

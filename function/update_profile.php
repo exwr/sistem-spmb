@@ -36,6 +36,19 @@ if (!empty($avatar['name'])) {
     // Path lengkap untuk menyimpan file avatar
     $avatarPath = $avatarDirectory . $avatarName;
 
+    // Hapus foto avatar lama jika bukan default-avatar.png
+    $queryOldAvatar = "SELECT avatar FROM t_user WHERE id = :id";
+    $stmtOldAvatar = $pdo->prepare($queryOldAvatar);
+    $stmtOldAvatar->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmtOldAvatar->execute();
+    $oldAvatarData = $stmtOldAvatar->fetch();
+    $oldAvatarPath = $oldAvatarData['avatar'];
+
+    // Jika ada foto avatar lama dan bukan default-avatar.png, hapus foto lama
+    if ($oldAvatarPath && $oldAvatarPath != "uploads/avatar/default-avatar.png") {
+        unlink($oldAvatarPath);
+    }
+
     // Pindahkan file avatar yang diunggah ke direktori yang sesuai
     move_uploaded_file($avatar['tmp_name'], $avatarPath);
 } else {

@@ -27,8 +27,9 @@ require('function/dashboard/profile_main.php');
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <link href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="cropper/dist/cropper.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
 
     <style>
@@ -39,6 +40,14 @@ require('function/dashboard/profile_main.php');
 
         a:hover {
             color: white;
+        }
+
+        .img-preview {
+            max-width: 100%;
+            height: 100px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            display: block;
         }
 
         button {
@@ -111,7 +120,7 @@ require('function/dashboard/profile_main.php');
                         <!-- ============================================================== -->
                         <li>
                             <a class="profile-pic" href="#">
-                                <img src="uploads/avatar/<?php echo $avatar; ?>" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
+                                <img src="uploads/avatar/<?php echo $avatar; ?>" alt="user-img" width="38px" height="36px" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile-->
@@ -146,8 +155,7 @@ require('function/dashboard/profile_main.php');
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
                                 <i class="fas fa-info-circle" aria-hidden="true"></i>
                                 <span class="hide-menu">Status Pendaftaran</span>
                             </a>
@@ -203,10 +211,11 @@ require('function/dashboard/profile_main.php');
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-12">
                         <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="uploads/avatar/<?php echo $avatar; ?>">
+                            <div class="user-bg"> <!-- <img width="100%" alt="user" src="uploads/avatar/<? //php echo $avatar; 
+                                                                                                        ?>"> -->
                                 <div class="overlay-box">
                                     <div class="user-content">
-                                        <a href="javascript:void(0)"><img src="uploads/avatar/<?php echo $avatar; ?>" class="thumb-lg img-circle" alt="img"></a>
+                                        <img src="uploads/avatar/<?php echo $avatar; ?>" class="thumb-lg img-circle" alt="img"></a>
                                         <h4 class="text-white mt-2"><?php echo $nama_lengkap; ?></h4>
                                         <h5 class="text-white mt-2"><?php echo $email; ?></h5>
                                     </div>
@@ -220,6 +229,12 @@ require('function/dashboard/profile_main.php');
                         <div class="card">
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="function/update_profile.php" method="post" enctype="multipart/form-data">
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Nomor Pendaftaran</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text" value="<?php echo $no_daftar;?>" class="form-control p-0 border-0" disabled>
+                                        </div>
+                                    </div>
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">NIK</label>
                                         <div class="col-md-12 border-bottom p-0">
@@ -313,7 +328,8 @@ require('function/dashboard/profile_main.php');
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Avatar</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="file" name="avatar" class="form-control p-0 border-0">
+                                            <input type="file" name="avatar" id="avatarInput" class="form-control p-0 border-0" onchange="handleAvatarChange()">
+                                            <img id="avatarPreview" src="uploads/avatar/<?php echo $avatar; ?>" alt="Avatar Preview" class="img-preview">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
@@ -329,7 +345,7 @@ require('function/dashboard/profile_main.php');
                 </div>
                 <!-- Row -->
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- End Page Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- Right sidebar -->
@@ -370,8 +386,33 @@ require('function/dashboard/profile_main.php');
     <script src="js/waves.js"></script>
     <!--Menu sidebar -->
     <script src="js/sidebarmenu.js"></script>
+    <!-- Cropper JS -->
+    <script src="cropper/dist/cropper.min.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+    <script>
+        function handleAvatarChange() {
+            var input = document.getElementById('avatarInput');
+            var preview = document.getElementById('avatarPreview');
+
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+
+                // Inisialisasi Cropper.js
+                var cropper = new Cropper(preview, {
+                    aspectRatio: 1, // Tetapkan rasio aspek sesuai kebutuhan
+                    crop: function(e) {
+                        // Perbarui bidang input tersembunyi dengan data yang dipotong (mis., e.detail.x, e.detail.y, e.detail.width, e.detail.height)
+                    }
+                });
+            };
+
+            // Baca file gambar yang dipilih
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
 </body>
 
 </html>

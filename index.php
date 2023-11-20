@@ -53,15 +53,6 @@
           <li><a class="active" href="index.php">Home</a></li>
           <li><a href="daftar-prodi.php">Daftar Prodi</a></li>
           <li><a href="biaya-pendaftaran.php">Biaya Pendaftaran</a></li>
-          <li class="dropdown"><a href="#"><span>Informasi Fakultas</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Fakultas Ilmu Komputer</a></li>
-              <li><a href="#">Fakultas Ilmu Kesehatan</a></li>
-              <li><a href="#">Fakultas Sains & Teknologi</a></li>
-              <li><a href="#">Fakultas Hukum & Bisnis</a></li>
-
-            </ul>
-          </li>
           <li><a href="register.php">Register</a></li>
           <li><a href="login.php">Login</a></li>
         </ul>
@@ -113,7 +104,7 @@
             <div class="icon-box icon-box-green">
               <div class="icon"><i class="bx bx-atom"></i></div>
               <h4 class="title"><a href="">Fakultas Sains & Teknologi</a></h4>
-              <p class="description">Lembaga pendidikan tinggi yang memiliki fokus utama pada ilmu pengetahuan alam, teknologi, dan teknik.</p>
+              <p class="description">Lembaga pendidikan tinggi yang memiliki fokus utama pada ilmu pengetahuan alam, teknologi, dan teknik.<p>
             </div>
           </div>
 

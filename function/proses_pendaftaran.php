@@ -1,6 +1,19 @@
 <?php
 require_once('connection.php');
 
+// Fungsi untuk generate nomor pendaftaran
+function generateNomorPendaftaran()
+{
+
+    // Generate nomor acak sepanjang 10 digit
+    $randomNumber = str_pad(mt_rand(1, 999999), 10, '0', STR_PAD_LEFT);
+
+    // Gabungkan prefix dengan nomor acak
+    $no_daftar = $randomNumber;
+
+    return $no_daftar;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -22,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $no_rw = $_POST["no_rw"];
     $prodi_1 = $_POST["prodi_1"];
     $prodi_2 = $_POST["prodi_2"];
-
+    
     // Masukkan data ke tabel alamat
     $queryAlamat = "INSERT INTO t_alamat (alamat, provinsi, kab_kota, kecamatan, kelurahan, no_rt, no_rw) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmtAlamat = $pdo->prepare($queryAlamat);
@@ -31,21 +44,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Dapatkan ID alamat yang baru saja dimasukkan
     $alamat_id = $pdo->lastInsertId();
 
+    // Set avatar default untuk pengguna baru
+    $defaultAvatar = "default-avatar.png";
+
     // Masukkan data ke tabel user
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $queryUser = "INSERT INTO t_user (username, password, email, role) VALUES (?, ?, ?, 'user')";
+    $queryUser = "INSERT INTO t_user (username, password, email, avatar, role) VALUES (?, ?, ?, ?, 'user')";
     $stmtUser = $pdo->prepare($queryUser);
-    $stmtUser->execute([$username, $hashed_password, $email]);
+    $stmtUser->execute([$username, $hashed_password, $email, $defaultAvatar]);
 
     // Dapatkan ID user yang baru saja dimasukkan
     $user_id = $pdo->lastInsertId();
 
+    // Generate nomor pendaftaran secara otomatis
+    $no_daftar = generateNomorPendaftaran();
+
     // Masukkan data ke tabel mahasiswa
-    $queryMahasiswa = "INSERT INTO t_mahasiswa (nama, nik, no_kk, gender, tempat_lahir, tanggal_lahir, no_hp, alamat_id, prodi_1, prodi_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $queryMahasiswa = "INSERT INTO t_mahasiswa (no_daftar, nama, nik, no_kk, gender, tempat_lahir, tanggal_lahir, no_hp, alamat_id, prodi_1, prodi_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmtMahasiswa = $pdo->prepare($queryMahasiswa);
-    $stmtMahasiswa->execute([$nama, $nik, $no_kk, $gender, $tempat_lahir, $tanggal_lahir, $no_hp, $alamat_id, $prodi_1, $prodi_2]);
+    $stmtMahasiswa->execute([$no_daftar, $nama, $nik, $no_kk, $gender, $tempat_lahir, $tanggal_lahir, $no_hp, $alamat_id, $prodi_1, $prodi_2]);
 
     // Redirect ke halaman sukses atau lainnya
     header("Location: ../konfirmasi.php");
 }
-?>

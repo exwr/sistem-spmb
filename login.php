@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// Cek apakah user sudah login kalau sudah kembalikan ke dashboard
+if (isset($_SESSION['id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
 if (isset($_GET['error'])) {
   if ($_GET['error'] == 1) {
       $error_message = "Username atau password salah.";
@@ -98,14 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="index.php">Home</a></li>
                     <li><a href="daftar-prodi.php">Daftar Prodi</a></li>
                     <li><a href="biaya-pendaftaran.php">Biaya Pendaftaran</a></li>
-                    <li class="dropdown"><a href="#"><span>Informasi Fakultas</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Fakultas Ilmu Komputer</a></li>
-                            <li><a href="#">Fakultas Ilmu Kesehatan</a></li>
-                            <li><a href="#">Fakultas Sains & Teknologi</a></li>
-                            <li><a href="#">Fakultas Hukum & Bisnis</a></li>
-                        </ul>
-                    </li>
                     <li><a href="register.php">Register</a></li>
                     <li><a class="active" href="login.php">Login</a></li>
                 </ul>
