@@ -1,14 +1,22 @@
 <?php
+session_start();
+
+// Cek apakah user sudah login kalau sudah kembalikan ke dashboard
+if (isset($_SESSION['id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
 if (isset($_GET['error'])) {
-  if ($_GET['error'] == 1) {
-      $error_message = "Username atau password salah.";
-  } elseif ($_GET['error'] == 'username_not_found') {
-      $error_message = "Username tidak ditemukan.";
-  }
+    if ($_GET['error'] == 1) {
+        $error_message = "Username atau password salah.";
+    } elseif ($_GET['error'] == 'username_not_found') {
+        $error_message = "Username tidak ditemukan.";
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  require_once('function/proses_login.php');
+    require_once('function/proses_login.php');
 }
 ?>
 
@@ -39,6 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
+        body {
+            background-image: url('assets/img/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
         .message-box {
             background-color: #f8d7da;
             border: 1px solid #f5c6cb;
@@ -46,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding: auto;
             margin-bottom: 20px;
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .message-box p {
@@ -57,6 +73,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-top: 50px;
         }
 
+        .login-form-container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -65,8 +93,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
         }
 
+        .form-control {
+            border-radius: 5px;
+        }
+
         .input-group {
             position: relative;
+        }
+
+        .input-group-prepend {
+            margin-right: -1px;
+        }
+
+        .input-group-prepend .input-group-text {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+        }
+
+        .input-group-prepend .input-group-text i {
+            color: #007bff;
+        }
+        
+        .btn-primary.text-center {
+            display: block;
+            margin: auto;
         }
 
         .btn-primary {
@@ -98,14 +148,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="index.php">Home</a></li>
                     <li><a href="daftar-prodi.php">Daftar Prodi</a></li>
                     <li><a href="biaya-pendaftaran.php">Biaya Pendaftaran</a></li>
-                    <li class="dropdown"><a href="#"><span>Informasi Fakultas</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Fakultas Ilmu Komputer</a></li>
-                            <li><a href="#">Fakultas Ilmu Kesehatan</a></li>
-                            <li><a href="#">Fakultas Sains & Teknologi</a></li>
-                            <li><a href="#">Fakultas Hukum & Bisnis</a></li>
-                        </ul>
-                    </li>
                     <li><a href="register.php">Register</a></li>
                     <li><a class="active" href="login.php">Login</a></li>
                 </ul>
@@ -130,84 +172,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="message-box">
                             <p>Login to Your Account</p>
                         </div>
-                        <form method="POST">
-                            <div class="form-group input-group">
-                                <input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
-                                <div class="input-group-text">
-                                    <i class="bi bi-person"></i>
+                        <div class="login-form-container">
+                            <form method="POST">
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
                                 </div>
-                            </div>
-                            <div class="form-group input-group">
-                                <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
-                                <div class="input-group-text">
-                                    <i class="bi bi-lock"></i>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-lock"></i>
+                                        </div>
+                                    </div>
+                                    <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
                                 </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
+                                <button type="submit" class="btn btn-primary text-center col-md-6">Login</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Daftar Prodi</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Biaya Pendaftaran</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Informasi Fakultas </a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Login</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg+3 col-md-6 footer-links">
-                        <h4>Website Fakultas</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Komputer</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Kesehatan</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Sains & Teknologi</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Hukum & Bisnis</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            Jl. Slamet Riyadi, No. 18 <br>
-                            Surakarta, Kode Pos 57112<br>
-                            Jawa Tengah <br><br>
-                            <strong>Phone:</strong> +621234567890<br>
-                            <strong>Email:</strong> Universitas ALETA@ac.id<br>
-                        </p>
-                    </div>
-
-                    <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Dikelola Oleh Tim IT <a href="index.php">Universitas ALETA</a>
-            </div>
-        </div>
-    </footer><!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
