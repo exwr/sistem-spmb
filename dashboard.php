@@ -1,5 +1,5 @@
 <?php
-require_once('function/dashboard/dashboard_main.php');
+require('function/dashboard/dashboard_main.php');
 ?>
 
 <!DOCTYPE html>
@@ -191,17 +191,7 @@ require_once('function/dashboard/dashboard_main.php');
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <div class="container-fluid">
-                    <?php if ($role === 'admin') : ?>
-                        <!-- Content for admin -->
-                        <h2>Welcome Admin</h2>
-                        <!-- Add other admin-specific content here -->
-                    <?php else : ?>
-                        <!-- Content for regular user -->
-                        <h2>Welcome User</h2>
-                        <!-- Add other user-specific content here -->
-                    <?php endif; ?>
-                </div>
+                
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

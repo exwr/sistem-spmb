@@ -21,11 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION['id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
-        header("Location: dashboard.php"); // Ganti dengan halaman yang sesuai setelah login berhasil
+        
+        // Arahkan ke dashboard sesuai peran
+        if ($_SESSION['role'] == 'admin') {
+            header("Location: dashboard.php");
+        } else {
+            header("Location: dashboard.php");
+        }
+        exit;
     } else {
         // Password salah
-        header("Location: login.php?error=1"); // Redirect ke halaman login dengan pesan kesalahan
+        header("Location: login.php?error=1");
     }
 }
-
 ?>

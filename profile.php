@@ -290,7 +290,7 @@ require('function/dashboard/profile_main.php');
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Pilihan Program Studi 1</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <select name="prodi_1" id="prodi_1" class="form-control" required>
+                                            <select name="prodi_1" id="prodi_1" class="form-control" disabled>
                                                 <option value="">- Pilih Program Studi -</option>
                                                 <?php
                                                 $queryProdi = "SELECT * FROM t_prodi";
@@ -309,7 +309,7 @@ require('function/dashboard/profile_main.php');
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Pilihan Program Studi 2</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <select name="prodi_2" id="prodi_2" class="form-control" required>
+                                            <select name="prodi_2" id="prodi_2" class="form-control" disabled>
                                                 <option value="">- Pilih Program Studi -</option>
                                                 <?php
                                                 $queryProdi = "SELECT * FROM t_prodi";

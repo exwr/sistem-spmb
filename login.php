@@ -47,6 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
+        body {
+            background-image: url('assets/img/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
         .message-box {
             background-color: #f8d7da;
             border: 1px solid #f5c6cb;
@@ -54,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding: auto;
             margin-bottom: 20px;
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .message-box p {
@@ -68,12 +76,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .login-form-container {
             margin-top: 50px;
             padding: 30px;
+            background-color: rgba(255, 255, 255, 0.6);
             border: 1px solid #ccc;
             border-radius: 10px;
             width: 80%;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
         }
 
         .form-group {
@@ -85,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .form-control {
-            border-radius: 0;
+            border-radius: 5px;
         }
 
         .input-group {
@@ -189,65 +198,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </section>
     </main>
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Daftar Prodi</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Biaya Pendaftaran</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Informasi Fakultas </a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Login</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg+3 col-md-6 footer-links">
-                        <h4>Website Fakultas</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Komputer</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Kesehatan</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Sains & Teknologi</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Hukum & Bisnis</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            Jl. Slamet Riyadi, No. 18 <br>
-                            Surakarta, Kode Pos 57112<br>
-                            Jawa Tengah <br><br>
-                            <strong>Phone:</strong> +621234567890<br>
-                            <strong>Email:</strong> Universitas ALETA@ac.id<br>
-                        </p>
-                    </div>
-
-                    <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Dikelola Oleh Tim IT <a href="index.php">Universitas ALETA</a>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
