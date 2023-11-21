@@ -154,18 +154,26 @@ require('function/dashboard/profile_main.php');
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                                <span class="hide-menu">Status Pendaftaran</span>
-                            </a>
-                        </li>
+                        <?php if ($role == 'admin') : ?>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admin_page.php" aria-expanded="false">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                    <span class="hide-menu">Admin Page</span>
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                    <span class="hide-menu">Status Pendaftaran</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="text-center p-20 upgrade-btn">
-                            <button class="btn d-grid btn-danger text-white" target="_blank"><a href="logout.php">
+                            <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
                                     Logout</a></button>
                         </li>
                     </ul>
-
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -232,7 +240,7 @@ require('function/dashboard/profile_main.php');
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Nomor Pendaftaran</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $no_daftar;?>" class="form-control p-0 border-0" disabled>
+                                            <input type="text" value="<?php echo $no_daftar; ?>" class="form-control p-0 border-0" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">

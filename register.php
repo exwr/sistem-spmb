@@ -8,6 +8,20 @@ if (isset($_SESSION['id'])) {
   exit();
 }
 
+// Tambahkan variabel untuk menyimpan pesan kesalahan
+$errorMessage = "";
+
+// Periksa apakah ada pesan kesalahan dari URL
+if (isset($_GET['error'])) {
+  $errorType = $_GET['error'];
+
+  // Tampilkan pesan kesalahan sesuai jenisnya
+  if ($errorType === 'username_exists') {
+    $errorMessage = "Username sudah digunakan.";
+  }
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -112,6 +126,9 @@ if (isset($_SESSION['id'])) {
           <h2>Pendaftaran Mahasiswa Baru</h2>
           <p>Informasi mengenai proses pendaftaran mahasiswa baru dapat ditemukan di sini. Silakan lengkapi formulir di bawah untuk mendaftar ke program studi kami.</p>
         </div>
+        <?php if (!empty($errorMessage)) : ?>
+          <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
+        <?php endif; ?>
         <div class="form">
           <h2 class="text-center mt-3">Form Registrasi</h2>
           <div class="container">

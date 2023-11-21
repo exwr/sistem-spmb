@@ -19,6 +19,9 @@ require('function/dashboard/dashboard_main.php');
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
 
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -142,18 +145,26 @@ require('function/dashboard/dashboard_main.php');
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <?php if ($role == 'admin') : ?>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admin_page.php" aria-expanded="false">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                    <span class="hide-menu">Admin Page</span>
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
                                 <i class="fas fa-info-circle" aria-hidden="true"></i>
                                 <span class="hide-menu">Status Pendaftaran</span>
                             </a>
                         </li>
+                        <?php endif; ?>
                         <li class="text-center p-20 upgrade-btn">
                             <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
                                     Logout</a></button>
                         </li>
                     </ul>
-
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -191,7 +202,13 @@ require('function/dashboard/dashboard_main.php');
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                
+                <?php
+                if ($role == 'admin') {
+                    include('function/dashboard/admin_dashboard.php');
+                } else {
+                    include('function/dashboard/user_dashboard.php');
+                }
+                ?>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

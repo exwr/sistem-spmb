@@ -61,8 +61,7 @@ require('function/dashboard/status_main.php');
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -91,14 +90,13 @@ require('function/dashboard/status_main.php');
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                   
+
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
@@ -109,7 +107,7 @@ require('function/dashboard/status_main.php');
                         <!-- ============================================================== -->
                         <li>
                             <a class="profile-pic" href="#">
-                            <img src="uploads/avatar/<?php echo $avatar; ?>" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
+                                <img src="uploads/avatar/<?php echo $avatar; ?>" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile -->
@@ -132,32 +130,37 @@ require('function/dashboard/status_main.php');
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php" aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php"
-                                aria-expanded="false">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                                <span class="hide-menu">Status Pendaftaran</span>
-                            </a>
-                        </li>
+                        <?php if ($role == 'admin') : ?>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admin_page.php" aria-expanded="false">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                    <span class="hide-menu">Admin Page</span>
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                    <span class="hide-menu">Status Pendaftaran</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="text-center p-20 upgrade-btn">
-                           <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
-                                Logout</a></button>
+                            <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
+                                    Logout</a></button>
                         </li>
                     </ul>
-
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -195,7 +198,7 @@ require('function/dashboard/status_main.php');
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                
+
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -204,7 +207,7 @@ require('function/dashboard/status_main.php');
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center"> &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
-            <p>Dikelola Oleh Tim IT <strong>Universitas ALETA</strong></p>
+                <p>Dikelola Oleh Tim IT <strong>Universitas ALETA</strong></p>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

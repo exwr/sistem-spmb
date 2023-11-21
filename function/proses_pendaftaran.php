@@ -4,7 +4,6 @@ require_once('connection.php');
 // Fungsi untuk generate nomor pendaftaran
 function generateNomorPendaftaran()
 {
-
     // Generate nomor acak sepanjang 10 digit
     $randomNumber = str_pad(mt_rand(1, 999999), 10, '0', STR_PAD_LEFT);
 
@@ -12,6 +11,21 @@ function generateNomorPendaftaran()
     $no_daftar = $randomNumber;
 
     return $no_daftar;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    
+    // Cek apakah username sudah digunakan
+    $queryCheckUsername = "SELECT * FROM t_user WHERE username = ?";
+    $stmtCheckUsername = $pdo->prepare($queryCheckUsername);
+    $stmtCheckUsername->execute([$username]);
+    
+    if ($stmtCheckUsername->rowCount() > 0) {
+        // Username sudah digunakan, arahkan kembali ke halaman registrasi dengan pesan kesalahan
+        header("Location: ../register.php?error=username_exists");
+        exit;
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
