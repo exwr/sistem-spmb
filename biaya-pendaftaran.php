@@ -31,6 +31,24 @@
   h5 {
     color: #fff;
   }
+
+  /* ... */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
 </style>
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center ">
@@ -61,7 +79,6 @@
 <!-- ======= Our Services Section ======= -->
 <section class="breadcrumbs">
   <div class="container">
-
     <div class="d-flex justify-content-between align-items-center">
       <h2>Biaya Pendaftaran</h2>
       <ol>
@@ -73,126 +90,186 @@
 <!-- ======= Service Details Section ======= -->
 <section class="service-details">
   <div class="container">
-
     <div class="row">
-      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+
+      <!-- Fakultas Ilmu Komputer -->
+      <div class="col-md-6" data-aos="fade-up">
         <div class="card">
-          <div class="card-img">
-            <img src="assets/img/service-details-1.jpg" alt="...">
-          </div>
           <div class="card-body">
             <h5 class="card-title"><a href="#">Fakultas Ilmu Komputer</a></h5>
-            <p class="card-text">S1 Sistem Informasi = Rp 10.000.000</p>
-            <p class="card-text">S1 Teknik Informatika = Rp 13.000.000</p>
-            <p class="card-text">D4 Teknologi Rekayasa Perangkat Lunak = Rp 10.000.000</p>
-            <p class="card-text">D3 Teknik Komputer = Rp 12.000.000</p>
+            <table>
+              <tr>
+                <th>Program Studi</th>
+                <th>Biaya Pendaftaran</th>
+              </tr>
+              <tr>
+                <td>S1 Sistem Informasi</td>
+                <td>Rp 10.000.000</td>
+              </tr>
+              <tr>
+                <td>S1 Teknik Informatika</td>
+                <td>Rp 13.000.000</td>
+              </tr>
+              <tr>
+                <td>D4 Teknologi Rekayasa Perangkat Lunak</td>
+                <td>Rp 10.000.000</td>
+              </tr>
+              <tr>
+                <td>D3 Teknik Komputer</td>
+                <td>Rp 12.000.000</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+
+      <!-- Fakultas Ilmu Kesehatan -->
+      <div class="col-md-6" data-aos="fade-up" style="margin-bottom: 20px;">
         <div class="card">
-          <div class="card-img">
-            <img src="assets/img/service-details-2.jpg" alt="...">
-          </div>
           <div class="card-body">
             <h5 class="card-title"><a href="#">Fakultas Ilmu Kesehatan</a></h5>
-            <p class="card-text">S1 Farmasi = Rp. 15.000.000</p>
-            <p class="card-text">S1 Keperawatan = Rp. 17.000.000</p>
-            <p class="card-text">S1 Administrasi Rumah Sakit = Rp. 14.000.000</p>
-            <p class="card-text">D3 Kebidanan = Rp. 10.000.000</p>
-            <p class="card-text">D3 Keperawatan = Rp. 12.000.000</p>
+            <table>
+              <tr>
+                <th>Program Studi</th>
+                <th>Biaya Pendaftaran</th>
+              </tr>
+              <tr>
+                <td>S1 Farmasi</td>
+                <td>Rp. 15.000.000</td>
+              </tr>
+              <tr>
+                <td>S1 Keperawatan</td>
+                <td>Rp. 17.000.000</td>
+              </tr>
+              <tr>
+                <td>S1 Administrasi Rumah Sakit</td>
+                <td>Rp. 14.000.000</td>
+              </tr>
+              <tr>
+                <td>D3 Kebidanan</td>
+                <td>Rp. 10.000.000</td>
+              </tr>
+              <tr>
+                <td>D3 Keperawatan</td>
+                <td>Rp. 17.000.000</td>
+              </tr>
+            </table>
           </div>
         </div>
-
       </div>
-      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+      
+      <!-- Fakultas Sains & Teknologi -->
+      <div class="col-md-6" data-aos="fade-up">
         <div class="card">
-          <div class="card-img">
-            <img src="assets/img/service-details-3.jpg" alt="...">
-          </div>
           <div class="card-body">
             <h5 class="card-title"><a href="#">Fakultas Sains & Teknologi</a></h5>
-            <p class="card-text">S1 Teknik Industri = Rp. 11.000.000</p>
-            <p class="card-text">S1 Agribisnis = Rp. 12.000.000</p>
+            <table>
+              <tr>
+                <th>Program Studi</th>
+                <th>Biaya Pendaftaran</th>
+              </tr>
+              <tr>
+                <td>S1 Teknik Industri</td>
+                <td>Rp. 11.000.000</td>
+              </tr>
+              <tr>
+                <td>S1 Agribisnis</td>
+                <td>Rp. 12.000.000</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+      
+      <!-- Fakultas Hukum & Bisnis -->
+      <div class="col-md-6" data-aos="fade-up">
         <div class="card">
-          <div class="card-img">
-            <img src="assets/img/service-details-4.jpg" alt="...">
-          </div>
           <div class="card-body">
             <h5 class="card-title"><a href="#">Fakultas Hukum & Bisnis</a></h5>
-            <p class="card-text">S1 Manajemen = Rp. 10.000.000</p>
-            <p class="card-text">S1 Hukum = Rp. 13.000.000</p>
-            <p class="card-text">S1 Akuntansi = Rp. 12.000.000</p>
+            <table>
+              <tr>
+                <th>Program Studi</th>
+                <th>Biaya Pendaftaran</th>
+              </tr>
+              <tr>
+                <td>S1 Manajemen</td>
+                <td>Rp. 10.000.000</td>
+              </tr>
+              <tr>
+                <td>S1 Hukum</td>
+                <td>Rp. 13.000.000</td>
+              </tr>
+              <tr>
+                <td>S1 Akuntansi</td>
+                <td>Rp. 12.000.000</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
-</section><!-- End Service Details Section -->
+</section>
 
 <!-- ======= Footer ======= -->
 <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
 
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Daftar Prodi</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Biaya Pendaftaran</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Informasi Fakultas </a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Login</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg+3 col-md-6 footer-links">
-                        <h4>Website Fakultas</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Komputer</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Kesehatan</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Sains & Teknologi</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Hukum & Bisnis</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            Jl. Slamet Riyadi, No. 18 <br>
-                            Surakarta, Kode Pos 57112<br>
-                            Jawa Tengah <br><br>
-                            <strong>Phone:</strong> +621234567890<br>
-                            <strong>Email:</strong> Universitas ALETA@ac.id<br>
-                        </p>
-                    </div>
-
-                    <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Daftar Prodi</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Biaya Pendaftaran</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Informasi Fakultas </a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Login</a></li>
+          </ul>
         </div>
 
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Dikelola Oleh Tim IT <a href="index.php">Universitas ALETA</a>
-            </div>
+        <div class="col-lg+3 col-md-6 footer-links">
+          <h4>Website Fakultas</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Komputer</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Ilmu Kesehatan</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Sains & Teknologi</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Fakultas Hukum & Bisnis</a></li>
+          </ul>
         </div>
-    </footer>
-    <!-- End Footer -->
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            Jl. Slamet Riyadi, No. 18 <br>
+            Surakarta, Kode Pos 57112<br>
+            Jawa Tengah <br><br>
+            <strong>Phone:</strong> +621234567890<br>
+            <strong>Email:</strong> Universitas ALETA@ac.id<br>
+          </p>
+        </div>
+
+        <div class="social-links mt-3">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Dikelola Oleh Tim IT <a href="index.php">Universitas ALETA</a>
+    </div>
+  </div>
+</footer>
+<!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
