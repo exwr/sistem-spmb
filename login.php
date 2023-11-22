@@ -1,12 +1,13 @@
 <?php
 session_start();
 
-// Cek apakah user sudah login kalau sudah kembalikan ke dashboard
+// Cek apakah user sudah login, jika sudah redirect ke dashboard
 if (isset($_SESSION['id'])) {
     header("Location: dashboard.php");
     exit();
 }
 
+// Menangani pesan error
 if (isset($_GET['error'])) {
     if ($_GET['error'] == 1) {
         $error_message = "Username atau password salah.";
@@ -15,6 +16,7 @@ if (isset($_GET['error'])) {
     }
 }
 
+// Memproses form login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once('function/proses_login.php');
 }
@@ -26,12 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
     <title>SPMB 2023 | Universitas ALETA</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+
+    <!-- Favicons -->
     <link href="assets/img/logo/logo.png" rel="icon">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
     <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,6 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Fontawesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
     <style>
@@ -88,10 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
         }
 
-        .form-control {
-            border-radius: 5px;
-        }
-
         .input-group {
             position: relative;
         }
@@ -132,11 +141,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             cursor: pointer;
         }
 
-        .fa-eye {
+        .bi-eye-fill {
             color: #007bff;
         }
 
-        .fa-eye-slash {
+        .bi-eye-slash-fill {
             color: #dc3545;
         }
     </style>
@@ -195,11 +204,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                     </div>
                                     <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
-                                    <span class="toggle-password">
-                                        <!-- Ganti kelas ikon mata sesuai dengan Font Awesome yang kamu gunakan -->
-                                        <i class="far fa-eye" onclick="togglePasswordVisibility()"></i>
+                                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                                        <!-- Ganti kelas ikon mata sesuai dengan Bootstrap Icons yang kamu gunakan -->
+                                        <i class="bi bi-eye"></i>
                                     </span>
-
                                 </div>
                                 <button type="submit" class="btn btn-primary text-center col-md-6">Login</button>
                             </form>
@@ -209,7 +217,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </section>
     </main>
+
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -222,16 +232,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script>
         function togglePasswordVisibility() {
             const passwordField = document.getElementById('password');
-            const icon = document.querySelector('.fa-eye');
+            const icon = document.querySelector('.toggle-password i');
 
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordField.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
+            if (passwordField && icon) {
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    icon.classList.remove('bi-eye');
+                    icon.classList.add('bi-eye-slash');
+                } else {
+                    passwordField.type = 'password';
+                    icon.classList.remove('bi-eye-slash');
+                    icon.classList.add('bi-eye');
+                }
             }
         }
     </script>
