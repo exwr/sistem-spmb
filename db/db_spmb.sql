@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Nov 2023 pada 10.52
+-- Waktu pembuatan: 22 Nov 2023 pada 09.16
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_spmb_baru`
+-- Database: `db_spmb`
 --
 
 -- --------------------------------------------------------
@@ -37,6 +37,15 @@ CREATE TABLE `t_alamat` (
   `no_rt` varchar(2) NOT NULL,
   `no_rw` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `t_alamat`
+--
+
+INSERT INTO `t_alamat` (`id`, `alamat`, `provinsi`, `kab_kota`, `kecamatan`, `kelurahan`, `no_rt`, `no_rw`) VALUES
+(1, 'BACEM', '33', '3311', '331109', '3311092008', '01', '01'),
+(2, 'Jl. Slamet Riyadi, No. 18 Surakarta', '33', '3372', '337201', '3372011007', '01', '01'),
+(3, 'NGUTER', '33', '3311', '331105', '3311052009', '01', '01');
 
 -- --------------------------------------------------------
 
@@ -91351,6 +91360,7 @@ INSERT INTO `t_kota` (`id`, `nama`) VALUES
 
 CREATE TABLE `t_mahasiswa` (
   `id` int(11) NOT NULL,
+  `no_daftar` varchar(15) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `nik` varchar(16) NOT NULL,
   `no_kk` varchar(16) NOT NULL,
@@ -91362,6 +91372,15 @@ CREATE TABLE `t_mahasiswa` (
   `prodi_1` varchar(50) NOT NULL,
   `prodi_2` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `t_mahasiswa`
+--
+
+INSERT INTO `t_mahasiswa` (`id`, `no_daftar`, `nama`, `nik`, `no_kk`, `gender`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `alamat_id`, `prodi_1`, `prodi_2`) VALUES
+(1, '202220955', 'GITA MAHARDIKA', '3311081607040001', '3311081607040002', 'Perempuan', 'SUKOHARJO', '2023-11-08', '089681217809', 1, '2', '1'),
+(2, '', 'ADMINISTRATOR', '0000000000000000', '0000000000000000', '', '', '2023-11-20', '000000000000', 2, '', ''),
+(3, '0000279830', 'AYUDIA', '0000000000000000', '0000000000000000', 'Perempuan', 'SUKOHARJO', '2023-11-21', '000000000000', 3, '2', '1');
 
 -- --------------------------------------------------------
 
@@ -91463,6 +91482,15 @@ CREATE TABLE `t_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data untuk tabel `t_user`
+--
+
+INSERT INTO `t_user` (`id`, `username`, `password`, `email`, `avatar`, `role`) VALUES
+(1, 'gita', '$2y$10$uOrxHb3Whwk8jNN2IfDVIOk7CJH4vujqmpCzX0c30edOnlg9r3BBK', 'gita.mahardika@gmail.com', 'default-avatar.png', 'user'),
+(2, 'admin', '$2y$10$5eDDL0JmeEx.Fq23NXyNReAaDgaDC86PVCE.CBhpgPQA6ikEURjPC', 'admin@aleta.ac.id', 'default-avatar.png', 'admin'),
+(3, 'ayudia', '$2y$10$TlFzDXt3EqyIB6sdYvVfGusGKFcGpCXsXiNlx932upsWQJrez4zri', 'ayudia@gmail.com', 'default-avatar.png', 'user');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -91528,7 +91556,7 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT untuk tabel `t_alamat`
 --
 ALTER TABLE `t_alamat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_fakultas`
@@ -91540,7 +91568,7 @@ ALTER TABLE `t_fakultas`
 -- AUTO_INCREMENT untuk tabel `t_mahasiswa`
 --
 ALTER TABLE `t_mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_prodi`
@@ -91552,7 +91580,7 @@ ALTER TABLE `t_prodi`
 -- AUTO_INCREMENT untuk tabel `t_user`
 --
 ALTER TABLE `t_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
