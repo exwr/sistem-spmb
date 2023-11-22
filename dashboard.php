@@ -46,6 +46,43 @@ require('function/dashboard/dashboard_main.php');
             margin-left: 20px;
             margin-top: 20px;
         }
+
+        .container-fluid {
+            max-width: 800px;
+            margin: 50px auto;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        h1,
+        h2,
+        p {
+            color: #001f3f;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .info {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .info p {
+            border-bottom: 1px solid #ddd;
+            /* Add a bottom border to each info paragraph */
+            padding: 8px 0;
+            /* Add padding to the top and bottom of each paragraph */
+        }
+
+        footer {
+            margin-top: 0;
+        }
     </style>
 </head>
 
@@ -62,8 +99,7 @@ require('function/dashboard/dashboard_main.php');
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -92,14 +128,13 @@ require('function/dashboard/dashboard_main.php');
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                   
+
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
@@ -110,7 +145,7 @@ require('function/dashboard/dashboard_main.php');
                         <!-- ============================================================== -->
                         <li>
                             <a class="profile-pic" href="#">
-                            <img src="uploads/avatar/<?php echo $avatar; ?>" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
+                                <img src="uploads/avatar/<?php echo $avatar; ?>" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium"><?php echo $nama_lengkap; ?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile -->
@@ -133,29 +168,26 @@ require('function/dashboard/dashboard_main.php');
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php" aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
                                 <i class="fas fa-info-circle" aria-hidden="true"></i>
                                 <span class="hide-menu">Status Pendaftaran</span>
                             </a>
                         </li>
                         <li class="text-center p-20 upgrade-btn">
-                           <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
-                                Logout</a></button>
+                            <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
+                                    Logout</a></button>
                         </li>
                     </ul>
 
@@ -196,24 +228,41 @@ require('function/dashboard/dashboard_main.php');
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                
+                <h1>Dashboard</h1>
+                <section>
+                    <h2>Selamat datang, <?php echo "$nama_lengkap"; ?>!</h2>
+                </section>
+
+                <?php
+                // Contoh data nomor daftar, nama, dan pilihan prodi
+                $nomor_daftar = "123456";
+                $nama = "Gita Mahardika";
+                $pilihan_prodi = "S1 - Teknik Informatika";
+                ?>
+
+                <div class="info">
+                    <p>Nomor Daftar: <?php echo $nomor_daftar; ?></p>
+                    <p>Nama: <?php echo $nama; ?></p>
+                    <p>Pilihan Prodi: <?php echo $pilihan_prodi; ?></p>
+                </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center"> &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
-            <p>Dikelola Oleh Tim IT <strong>Universitas ALETA</strong></p>
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Container fluid  -->
         <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center"> &copy; Copyright <strong><span>Universitas ALETA</strong>. All Rights Reserved
+            <p>Dikelola Oleh Tim IT <strong>Universitas ALETA</strong></p>
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
