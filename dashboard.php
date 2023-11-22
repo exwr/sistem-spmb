@@ -52,13 +52,17 @@ require('function/dashboard/dashboard_main.php');
 
         .container-fluid {
             max-width: 800px;
-            margin: 50px auto;
+            margin-top: 20px;
             margin-bottom: 20px;
             background-color: #fff;
-            padding: 20px;
+            padding: 5px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: left;
+        }
+
+        .container-fluid h1 {
+            text-align: center;
         }
 
         h1,
@@ -78,9 +82,7 @@ require('function/dashboard/dashboard_main.php');
 
         .info p {
             border-bottom: 1px solid #ddd;
-            /* Add a bottom border to each info paragraph */
             padding: 8px 0;
-            /* Add padding to the top and bottom of each paragraph */
         }
     </style>
 </head>
@@ -172,26 +174,26 @@ require('function/dashboard/dashboard_main.php');
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Profile</span>
-                            </a>
-                        </li>
                         <?php if ($role == 'admin') : ?>
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admin_page.php" aria-expanded="false">
-                                    <i class="fa fa-key" aria-hidden="true"></i>
-                                    <span class="hide-menu">Admin Page</span>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Konfirmasi</span>
                                 </a>
                             </li>
                         <?php else : ?>
                             <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                                <span class="hide-menu">Status Pendaftaran</span>
-                            </a>
-                        </li>
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Profile</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                    <span class="hide-menu">Status Pendaftaran</span>
+                                </a>
+                            </li>
                         <?php endif; ?>
                         <li class="text-center p-20 upgrade-btn">
                             <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">

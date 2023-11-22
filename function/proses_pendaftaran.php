@@ -15,12 +15,12 @@ function generateNomorPendaftaran()
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
-    
+
     // Cek apakah username sudah digunakan
     $queryCheckUsername = "SELECT * FROM t_user WHERE username = ?";
     $stmtCheckUsername = $pdo->prepare($queryCheckUsername);
     $stmtCheckUsername->execute([$username]);
-    
+
     if ($stmtCheckUsername->rowCount() > 0) {
         // Username sudah digunakan, arahkan kembali ke halaman registrasi dengan pesan kesalahan
         header("Location: ../register.php?error=username_exists");
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $no_rw = $_POST["no_rw"];
     $prodi_1 = $_POST["prodi_1"];
     $prodi_2 = $_POST["prodi_2"];
-    
+
     // Masukkan data ke tabel alamat
     $queryAlamat = "INSERT INTO t_alamat (alamat, provinsi, kab_kota, kecamatan, kelurahan, no_rt, no_rw) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmtAlamat = $pdo->prepare($queryAlamat);
@@ -73,10 +73,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Generate nomor pendaftaran secara otomatis
     $no_daftar = generateNomorPendaftaran();
 
-    // Masukkan data ke tabel mahasiswa
+    // Masukkan data ke dalam tabel mahasiswa
     $queryMahasiswa = "INSERT INTO t_mahasiswa (no_daftar, nama, nik, no_kk, gender, tempat_lahir, tanggal_lahir, no_hp, alamat_id, prodi_1, prodi_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmtMahasiswa = $pdo->prepare($queryMahasiswa);
     $stmtMahasiswa->execute([$no_daftar, $nama, $nik, $no_kk, $gender, $tempat_lahir, $tanggal_lahir, $no_hp, $alamat_id, $prodi_1, $prodi_2]);
+
+    // Dapatkan ID user yang baru saja dimasukkan
+    $user_id = $pdo->lastInsertId();
+
+    // Masukkan data ke dalam tabel pendaftaran
+    $queryPendaftaran = "INSERT INTO t_pendaftaran (id_mahasiswa, tanggal_pendaftaran, status_pendaftaran) VALUES (?, NOW(), 'Menunggu Verifikasi')";
+    $stmtPendaftaran = $pdo->prepare($queryPendaftaran);
+    $stmtPendaftaran->execute([$user_id]);
 
     // Redirect ke halaman sukses atau lainnya
     header("Location: ../konfirmasi.php");

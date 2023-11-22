@@ -1,6 +1,5 @@
 <?php
 
-
 // Ambil informasi pengguna dari database
 $id = $_SESSION['id'];
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
@@ -18,15 +17,9 @@ if ($_SESSION['role'] !== 'user') {
     <h2>Selamat datang, <?php echo "$nama_lengkap"; ?>!</h2>
 </section>
 
-<?php
-// Contoh data nomor daftar, nama, dan pilihan prodi
-$nomor_daftar = "123456";
-$nama = "Gita Mahardika";
-$pilihan_prodi = "S1 - Teknik Informatika";
-?>
-
 <div class="info">
-    <p>Nomor Daftar: <?php echo $nomor_daftar; ?></p>
-    <p>Nama: <?php echo $nama; ?></p>
-    <p>Pilihan Prodi: <?php echo $pilihan_prodi; ?></p>
+    <p>Nomor Daftar: <?php echo $no_daftar; ?></p>
+    <p>Nama: <?php echo $nama_lengkap; ?></p>
+    <p>Pilihan Program Studi 1: <?php echo $prodi_1; ?></p>
+    <p>Pilihan Program Studi 2: <?php echo $prodi_2; ?></p>
 </div>

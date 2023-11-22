@@ -139,27 +139,30 @@ require('function/dashboard/dashboard_main.php');
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Profile</span>
-                            </a>
-                        </li>
+
                         <?php if ($role == 'admin') : ?>
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admin_page.php" aria-expanded="false">
-                                    <i class="fa fa-key" aria-hidden="true"></i>
-                                    <span class="hide-menu">Admin Page</span>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Konfirmasi</span>
                                 </a>
                             </li>
+
                         <?php else : ?>
                             <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                                <span class="hide-menu">Status Pendaftaran</span>
-                            </a>
-                        </li>
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php" aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Profile</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="status.php" aria-expanded="false">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                    <span class="hide-menu">Status Pendaftaran</span>
+                                </a>
+                            </li>
                         <?php endif; ?>
+
                         <li class="text-center p-20 upgrade-btn">
                             <button class="btn d-grid btn-danger text-white" target="_blank"> <a href="logout.php">
                                     Logout</a></button>

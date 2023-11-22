@@ -56,7 +56,7 @@
                 <h2>Konfirmasi Pendaftaran</h2>
                 <p>Terima kasih, pendaftaran Anda telah berhasil disimpan dalam database kami.</p>
                 <p>Silakan tunggu informasi lebih lanjut melalui email yang telah Anda berikan.</p>
-                <p>Kembali ke halaman utama dalam <span id="countdown">5</span> detik...</p>
+                <p>Mengarah ke halaman login dalam <span id="countdown">5</span> detik...</p>
             </div>
         </section>
     </main><!-- End #main -->
@@ -99,7 +99,7 @@
 
                 if (counter < 0) {
                     clearInterval(countdownInterval);
-                    window.location.href = "index.php";
+                    window.location.href = "login.php";
                 }
             }, 1000);
         }
