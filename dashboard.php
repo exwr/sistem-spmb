@@ -49,6 +49,39 @@ require('function/dashboard/dashboard_main.php');
             margin-left: 20px;
             margin-top: 20px;
         }
+
+        .container-fluid {
+            max-width: 800px;
+            margin: 50px auto;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        h1,
+        h2,
+        p {
+            color: #001f3f;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .info {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .info p {
+            border-bottom: 1px solid #ddd;
+            /* Add a bottom border to each info paragraph */
+            padding: 8px 0;
+            /* Add padding to the top and bottom of each paragraph */
+        }
     </style>
 </head>
 
